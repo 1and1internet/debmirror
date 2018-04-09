@@ -9,7 +9,7 @@ COPY files /
 ENV \
   SOURCE_SRV=gb.archive.ubuntu.com \
   SOURCE_DIR=/ubuntu \
-  DIST="trusty,trusty-security,trusty-updates,trusty-backports,trusty-proposed" \
+  DIST="trusty,trusty-security,trusty-updates,trusty-backports,trusty-proposed,xenial,xenial-security,xenial-updates,xenial-backports,xenial,proposed" \
   SECTION="main,restricted,universe,multiverse" \
   ARCH="i386,amd64" \
   MIRRORDIR="/debmirror" \
