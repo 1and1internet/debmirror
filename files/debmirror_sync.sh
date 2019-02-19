@@ -1,1 +1,1 @@
-/usr/bin/debmirror -v -e http --method ${METHOD} -h ${SOURCE_SRV} -r ${SOURCE_DIR} --dist=${DIST} --section=${SECTION} --arch=${ARCH} --ignore-release-gpg --no-check-gpg ${MIRRORDIR} # >> ${DEBUGFILE} 2>&1
+/usr/bin/debmirror -v --config-file=${CONFDIR}/debmirror.conf ${MIRRORDIR} # >> ${CONFDIR}/${DEBUGFILE} 2>&1
