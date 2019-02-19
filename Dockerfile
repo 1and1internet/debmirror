@@ -7,10 +7,10 @@ ARG DEBIAN_FRONTEND=noninteractive
 COPY files /
 
 ENV \
-  SOURCE_SRV=gb.archive.ubuntu.com \
-  SOURCE_DIR=/ubuntu \
-  DIST="trusty,trusty-security,trusty-updates,trusty-backports,trusty-proposed,xenial,xenial-security,xenial-updates,xenial-backports,xenial-proposed,bionic,bionic-security,bionic-updates,bionic-backports,bionic-proposed" \
-  SECTION="main,restricted,universe,multiverse" \
+  SOURCE_SRV=apt.puppetlabs.com \
+  SOURCE_DIR=/ \
+  DIST="trusty,xenial,bionic" \
+  SECTION="dependencies,main,PC1,puppet,puppet5,puppet6" \
   ARCH="i386,amd64" \
   MIRRORDIR="/debmirror" \
   DEBUGFILE="/tmp/debmirror-debug.log" \
