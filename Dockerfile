@@ -14,10 +14,10 @@ ENV \
   ARCH="i386,amd64" \
   MIRRORDIR="/debmirror" \
   DEBUGFILE="/tmp/debmirror-debug.log" \
-  METHOD="http"
+  METHOD="https"
 
 RUN \
-  apt-get update && apt-get install -o Dpkg::Options::=--force-confdef -y debmirror xz-utils && \
+  apt-get update && apt-get install -o Dpkg::Options::=--force-confdef -y debmirror xz-utils apt-transport-https && \
   chmod 0755 /debmirror_sync.sh && \
   mkdir -p ${MIRRORDIR} && \
   chmod 0777 ${MIRRORDIR}
