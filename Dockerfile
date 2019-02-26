@@ -1,24 +1,21 @@
 FROM ubuntu:latest
 
-MAINTAINER James Eckersall james.eckersall@fasthosts.com
+MAINTAINER Matt Pays matt.pays@fasthosts.com
 
 ARG DEBIAN_FRONTEND=noninteractive
 
 COPY files /
 
 ENV \
-  SOURCE_SRV=gb.archive.ubuntu.com \
-  SOURCE_DIR=/ubuntu \
-  DIST="trusty,trusty-security,trusty-updates,trusty-backports,trusty-proposed,xenial,xenial-security,xenial-updates,xenial-backports,xenial-proposed,bionic,bionic-security,bionic-updates,bionic-backports,bionic-proposed" \
-  SECTION="main,restricted,universe,multiverse" \
-  ARCH="i386,amd64" \
   MIRRORDIR="/debmirror" \
-  DEBUGFILE="/tmp/debmirror-debug.log" \
-  METHOD="http"
+  CONFDIR="/status" \
+  DEBUGFILE="debmirror-debug.log"
 
 RUN \
-  apt-get update && apt-get install -o Dpkg::Options::=--force-confdef -y debmirror xz-utils && \
+  apt-get update && apt-get install -o Dpkg::Options::=--force-confdef -y debmirror xz-utils apt-transport-https && \
   chmod 0755 /debmirror_sync.sh && \
+  mkdir -p ${CONFDIR} && \
+  chmod 0777 ${CONFDIR} && \
   mkdir -p ${MIRRORDIR} && \
   chmod 0777 ${MIRRORDIR}
 
